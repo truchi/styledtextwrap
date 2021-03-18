@@ -6,7 +6,7 @@ fn main() {
 
     while width > 0 {
         let mut screen = Screen::new(width, 10, Background(255, 255, 255));
-        screen.text("Hello, <red><bold>world</bold>!</red>");
+        screen.text("Hello, cruel <red><bold>world</bold>!</red>");
 
         println!("{}", width);
         println!("{}", screen);

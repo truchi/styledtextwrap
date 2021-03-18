@@ -109,10 +109,6 @@ pub fn to_text(mut s: &str) -> Vec<StyledWord> {
     while let Some(c) = chars.next() {
         match c {
             '\n' => {} // panic!("No idea what to do with line breaks"),
-            ' ' => {
-                word.white += 1;
-                new = true;
-            }
             '<' => {
                 text.push(word);
                 word = StyledWord::default();
@@ -126,6 +122,11 @@ pub fn to_text(mut s: &str) -> Vec<StyledWord> {
                         break;
                     }
                 }
+                new = true;
+            }
+            ' ' => {
+                word.white += 1;
+                word.string.push(' ');
                 new = true;
             }
             c => {
