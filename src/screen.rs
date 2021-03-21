@@ -61,6 +61,8 @@ impl Screen {
                     self.cells[y][x] = Cell { char, style };
                     x += 1;
                 }
+
+                x += word.whitespace_width();
             }
 
             y += 1;
@@ -126,7 +128,6 @@ pub fn to_text(mut s: &str) -> Vec<StyledWord> {
             }
             ' ' => {
                 word.white += 1;
-                word.string.push(' ');
                 new = true;
             }
             c => {
